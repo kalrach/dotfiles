@@ -6,6 +6,7 @@ local actions = require("telescope.actions")
 local open_with_trouble = require("trouble.sources.telescope").open
 local add_to_trouble = require("trouble.sources.telescope").add
 local telescope = require("telescope")
+local smart_splits = require('smart-splits')
 
 telescope.setup({
     defaults = {
@@ -27,4 +28,12 @@ wk.add({
     { "<leader>dx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)", mode = "n" },
     { "<leader>dX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)", mode = "n" },
     { "<leader>dl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", desc = "LSP Definitions / references / ... (Trouble)", mode = "n" },
+    { "<M-h>", smart_splits.move_cursor_left,  desc = "Move Left" },
+    { "<M-j>", smart_splits.move_cursor_down,  desc = "Move Down" },
+    { "<M-k>", smart_splits.move_cursor_up,    desc = "Move Up" },
+    { "<M-l>", smart_splits.move_cursor_right, desc = "Move Right" },
+    { "<M-S-h>", smart_splits.resize_left,     desc = "Resize Left" },
+    { "<M-S-j>", smart_splits.resize_down,     desc = "Resize Down" },
+    { "<M-S-k>", smart_splits.resize_up,       desc = "Resize Up" },
+    { "<M-S-l>", smart_splits.resize_right,    desc = "Resize Right" },
 })
